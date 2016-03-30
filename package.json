@@ -1,0 +1,31 @@
+{
+  "name": "lines-draw",
+  "version": "1.0.0",
+  "description": "Draw html div that looks like lines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avaleriani/linesDraw.git"
+  },
+  "dependencies": {
+    "shortid": "^2.2.4",
+    "jquery": "^2.2.2",
+    "scrollmagic": "^2.0.5"
+  },
+  "keywords": [
+    "draw",
+    "lines",
+    "jquery",
+    "html",
+    "div"
+  ],
+  "author": "Agustin Valeriani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avaleriani/linesDraw/issues"
+  },
+  "homepage": "https://github.com/avaleriani/linesDraw#readme"
+}
