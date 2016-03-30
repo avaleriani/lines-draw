@@ -1,17 +1,56 @@
+
 # linesDraw
 
+Draw lines with html divs.
 
-To create and show all the functions: 
+## Getting Started
+
+```
+    npm install linesDraw
+```
+
+## Running the tests
+
+TODO
+
+## Example
+
+Line example
+
+```
 
 line = [
-startPointX = 450,
-startPointY = 220,
-finisPointX = 650,
-finishPointY = 220,
-color=#112211
+   startPoint=[
+        x = 450,
+        Y = 220,
+    ],
+    finishPoint = [
+        x= 650,
+        y= 220,
+    ],
+    colorSelected="#112211"
 ]
+
+```
+
+
+Add the line
+
+```
 linesDrawer.addLine(line);
+```
+ 
+ 
+ Draw It!
+
+```
  
    linesDrawer.createAllLines('#container');
-            linesDrawer.scrollAnimate();
-            linesDrawer.mouseCoordenatesOnTitle();
+
+```
+
+You could do this call to get your mouse coordenates(needed for every point of the lines) on your page title
+
+```
+   linesDrawer.mouseCoordenatesOnTitle();
+```

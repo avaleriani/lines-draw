@@ -13,7 +13,7 @@ var linesDrawer = {
 
     createAllLines: function (appendId) {
         this.linesToDraw.forEach(function (sl) {
-            this.createLine(sl.startPoint(), sl.endPoint(), sl.colorSelected()).appendTo(appendId);
+            this.createLine(sl.startPoint, sl.endPoint, sl.colorSelected).appendTo(appendId);
         });
     },
 
