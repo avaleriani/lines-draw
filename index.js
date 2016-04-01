@@ -99,7 +99,7 @@ var linesDrawer = {
     scrollAnimate: function () {
         var duration = 400;
         var counter = 0;
-        var controller = new scrollMagic.ScrollMagic.Controller();
+        var controller = new scrollMagic.Controller();
 
         $.each(linesDrawer.lines, function () {
             var $obj = $("#point_" + counter);
@@ -107,7 +107,7 @@ var linesDrawer = {
             var width = $obj.css('width');
             $obj.css('height', '0');
             $obj.css('width', '0');
-            new scrollMagic.ScrollMagic.Scene({triggerElement: '#trigger' + counter})
+            new scrollMagic.Scene({triggerElement: '#trigger' + counter})
                 .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
                 .addTo(controller);
             counter = counter + 1;
