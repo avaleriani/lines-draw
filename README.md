@@ -15,6 +15,12 @@ Draw lines with html divs.
 
 TODO
 
+## Installation
+
+```
+    var linesDrawer = require("lines-draw");
+```
+
 ## Example
 
 Line example

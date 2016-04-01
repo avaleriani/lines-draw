@@ -1,11 +1,21 @@
-var $ = require("../node_modules/jquery");
-var shortid = require('../node_modules/shortid');
-var scrollMagic = require('../node_modules/scrollmagic');
+'use strict';
+var $ = require("../jquery");
+var shortid = require('../shortid');
+var scrollMagic = require('../scrollmagic');
+var point = require('./point');
+var line = require('./line');
 var linesDrawer = {
     linesToDraw: [],
     lines: [],
     colorDefault: "#ffffff",
 
+    getPoint: function (x, y) {
+        return new point.Point(x, y);
+    },
+
+    getLine: function (p1, p2, col) {
+        return new line.Line(p1, p2, col);
+    },
 
     addLine: function (line) {
         this.linesToDraw.push(line);
@@ -106,8 +116,8 @@ var linesDrawer = {
 
     mouseCoordenatesOnTitle: function () {
         document.onmousemove = function (e) {
-            cursorX = e.pageX;
-            cursorY = e.pageY;
+            var cursorX = e.pageX;
+            var cursorY = e.pageY;
             $('title').html('x:' + cursorX + ' - y:' + cursorY);
         }
     }
