@@ -2,12 +2,11 @@
 var $ = require("../jquery");
 var shortid = require('../shortid');
 var scrollMagic = require('../scrollmagic');
-var point = require('lib/point');
-var line = require('lib/line');
+var point = require('../lib/point');
+var line = require('../lib/line');
 var linesDrawer = {
     linesToDraw: [],
     lines: [],
-    colorDefault: "#ffffff",
 
     getPoint: function (x, y) {
         return new point.Point(x, y);
