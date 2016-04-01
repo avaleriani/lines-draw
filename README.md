@@ -27,17 +27,7 @@ Line example
 
 ```
 
-line = [
-   startPoint=[
-        x = 450,
-        Y = 220,
-    ],
-    finishPoint = [
-        x= 650,
-        y= 220,
-    ],
-    colorSelected="#112211"
-]
+
 
 ```
 

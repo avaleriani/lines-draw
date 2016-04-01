@@ -14,11 +14,12 @@ var linesDrawer = {
     },
 
     getLine: function (p1, p2, col) {
+        col = typeof col !== 'undefined' ? col : "#ffffff";
         return new line.Line(p1, p2, col);
     },
 
-    addLine: function (line) {
-        this.linesToDraw.push(line);
+    addLine: function (lines) {
+        Array.prototype.push.apply(this.linesToDraw, lines);
     },
 
     createAllLines: function (appendId) {
