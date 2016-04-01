@@ -2,8 +2,8 @@
 var $ = require("../jquery");
 var shortid = require('../shortid');
 var scrollMagic = require('../scrollmagic');
-var point = require('./point');
-var line = require('./line');
+var point = require('lib/point');
+var line = require('lib/line');
 var linesDrawer = {
     linesToDraw: [],
     lines: [],
@@ -14,7 +14,7 @@ var linesDrawer = {
     },
 
     getLine: function (p1, p2, col) {
-        col = typeof col !== 'undefined' ? col : "#ffffff";
+        col = typeof col !== 'undefined' ? col : "#000000";
         return new line.Line(p1, p2, col);
     },
 

@@ -3,12 +3,12 @@
 
 # linesDraw
 
-Draw lines with html divs.
+Draw lines in the page with html divs.
 
 ## Getting Started
 
 ```
-    npm install linesDraw
+    npm install lines-draw
 ```
 
 ## Running the tests
