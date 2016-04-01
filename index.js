@@ -9,12 +9,12 @@ var linesDrawer = {
     lines: [],
 
     getPoint: function (x, y) {
-        return new point.Point(x, y);
+        return new point(x, y);
     },
 
     getLine: function (p1, p2, col) {
         col = typeof col !== 'undefined' ? col : "#000000";
-        return new line.Line(p1, p2, col);
+        return new line(p1, p2, col);
     },
 
     addLine: function (lines) {
