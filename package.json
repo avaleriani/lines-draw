@@ -1,6 +1,6 @@
 {
   "name": "lines-draw",
-  "version": "1.0.10",
+  "version": "1.0.14",
   "description": "Draw html div that looks like lines",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,14 @@
     "jquery": "2.x",
     "velocity-animate": "1.2.x",
     "scrollmagic": "2.x"
+  },
+  "overrides": {
+    "scrollmagic": {
+      "main": [
+        "./scrollmagic/uncompressed/ScrollMagic.js",
+        "./scrollmagic/uncompressed/plugins/animation.velocity.js"
+      ]
+    }
   },
   "keywords": [
     "draw",
