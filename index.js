@@ -21,12 +21,6 @@ var linesDrawer = {
         Array.prototype.push.apply(this.linesToDraw, lines);
     },
 
-    createAllLines: function (appendId) {
-        this.linesToDraw.forEach(function (sl) {
-            this.createLine(sl.startPoint, sl.endPoint, sl.colorSelected).appendTo(appendId);
-        });
-    },
-
     createLine: function (pointA, pointB, color) {
         var uuid = shortid.generate();
         var length, height, width, float = 'left';
@@ -61,6 +55,13 @@ var linesDrawer = {
         this.lines.push($(line));
 
         return $(line);
+    },
+
+    createAllLines: function (appendId) {
+        var that = this;
+        this.linesToDraw.forEach(function (sl) {
+            that.createLine(sl.startPoint, sl.endPoint, sl.colorSelected).appendTo(appendId);
+        });
     },
 
     calculateLenght: function (p1, p2) {

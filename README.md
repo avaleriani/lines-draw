@@ -25,18 +25,62 @@ TODO
 
 Line example
 
-```
-
-
+Define some triggers like these:
 
 ```
+    <div class="triggers">
+        <div class="trigger" id="trigger0"></div>
+        <div class="trigger" id="trigger1"></div>
+        <div class="trigger" id="trigger2"></div>
+        <div class="trigger" id="trigger3"></div>
+   </div>
 
+
+Add position with css
+
+```
+.triggers .trigger {
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    opacity: 0;
+}
+
+#trigger0 {
+    top: 590px;
+}
+
+#trigger1 {
+    top: 710px;
+}
+
+#trigger2 {
+    top: 730px;
+}
+
+#trigger3 {
+    top: 910px;
+}
+```
+
+Define some points with the x and y coordinates
+
+```
+    var p1 = linesDrawer.getPoint(200,400);
+    var p2 = linesDrawer.getPoint(600,400);
+    var p3 = linesDrawer.getPoint(600,100);
+    var p4= linesDrawer.getPoint(100,400);
+
+```
 
 Add the line
 
 ```
-linesDrawer.addLine(line);
-```
+ 
+    linesDrawer.addLine([linesDrawer.getLine(p1,p2, "#000000"), linesDrawer.getLine(p2,p3, "#000000")]);
+    linesDrawer.addLine([linesDrawer.getLine(p3,p4, "#000000")]);
+    
+    ```
  
  
  Draw It!
