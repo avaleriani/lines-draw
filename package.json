@@ -13,6 +13,7 @@
   "dependencies": {
     "shortid": "2.x",
     "jquery": "2.x",
+    "velocity-animate": "1.2.x",
     "scrollmagic": "2.x"
   },
   "keywords": [
