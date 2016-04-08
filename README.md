@@ -3,7 +3,7 @@
 
 ![Lines Draw](http://i.imgur.com/zSLrLyu.png)
 
-Draw lines in the page with html divs.
+Draw lines in a web page with html divs.
 
 ## Getting Started
 
@@ -91,7 +91,7 @@ Add the line
 
 ```
 
-You could do this call to get your mouse coordenates(needed for every point of the lines) on your page title
+You could do this call to get your mouse coordenates(needed to determinate every point of the lines) on your page title
 
 ```
    linesDrawer.mouseCoordenatesOnTitle();
