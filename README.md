@@ -1,7 +1,7 @@
 
-##  WIP
+#  WIP
 
-![alt tag](http://i.imgur.com/zSLrLyu.png)
+![Lines Draw](http://i.imgur.com/zSLrLyu.png)
 
 Draw lines in the page with html divs.
 
@@ -20,7 +20,7 @@ TODO
 ```
     var linesDrawer = require("lines-draw");
 ```
-
+---
 ## Example
 
 Line example
@@ -34,33 +34,33 @@ Define some triggers like these:
         <div class="trigger" id="trigger2"></div>
         <div class="trigger" id="trigger3"></div>
    </div>
-
+```
 
 Add position with css
 
 ```
-.triggers .trigger {
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    opacity: 0;
-}
+    .triggers .trigger {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        opacity: 0;
+    }
 
-#trigger0 {
-    top: 590px;
-}
-
-#trigger1 {
-    top: 710px;
-}
-
-#trigger2 {
-    top: 730px;
-}
-
-#trigger3 {
-    top: 910px;
-}
+    #trigger0 {
+        top: 590px;
+    }
+    
+    #trigger1 {
+        top: 710px;
+    }
+    
+    #trigger2 {
+        top: 730px;
+    }
+    
+    #trigger3 {
+        top: 910px;
+    }
 ```
 
 Define some points with the x and y coordinates
