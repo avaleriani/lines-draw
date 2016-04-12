@@ -1,7 +1,6 @@
 'use strict';
 var $ = require("../jquery");
 var shortid = require('../shortid');
-var scrollMagic = require('../scrollmagic');
 var point = require('./lib/point');
 var line = require('./lib/line');
 var linesDrawer = {
