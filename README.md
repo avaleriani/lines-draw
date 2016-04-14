@@ -91,6 +91,10 @@ Add the line
 
 ```
 
+#Note
+
+    Each line TRIGGER Y LINEA TIENEN EL MISMO NOMBRE LINEA X corresponde a TRIGGER X
+
 You could do this call to get your mouse coordenates(needed to determinate every point of the lines) on your page title
 
 ```
