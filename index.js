@@ -3,24 +3,54 @@ var $ = require("../jquery");
 var shortid = require('../shortid');
 var point = require('./lib/point');
 var line = require('./lib/line');
+var trigger = require('./lib/trigger');
+var fs = require('fs');
+var insertCss = require('insert-css');
+var css = fs.readFileSync(__dirname + '/basic-styles.css');
+insertCss(css);
+//todo:: check css
 var linesDrawer = {
     linesToDraw: [],
     lines: [],
+    options: {
+        'triggersContainerAppendTo': 'body',
+        'triggersContainerId': '#triggers', //container where all the triggers will be created
+        'animationDuration': 400, //duration for the effect when scroll in microseconds
+        'triggerScroll': '#scrollTrigger' //where the trigger scroll starts to search for triggers TODO
+    },
 
     getPoint: function (x, y) {
         return new point(x, y);
     },
 
-    getLine: function (p1, p2, col) {
-        col = typeof col !== 'undefined' ? col : "#000000";
-        return new line(p1, p2, col);
+    getLine: function (p1, p2, color, trigger) {
+        color = typeof color !== 'undefined' ? color : "#000000";
+        return new line(p1, p2, color, trigger);
+    },
+
+    getTrigger: function (top) {
+        if (Number(top) === top && top % 1 === 0) {
+            var trigger = new Trigger(top);
+            var triggerContainer = document.getElementById(this.options['triggersContainerId']);
+            if (triggerContainer === null) {
+                var triggers = document.createElement('div');
+                triggers.id = this.options['triggersContainerId'];
+                triggers.className = 'trigger';
+                $(this.options['triggersContainerAppendTo']).appendChild(triggers);
+                triggerContainer = triggers;
+            }
+            triggerContainer.appendChild($(trigger));
+            return trigger;
+        } else {
+            console.log('Only Integer allowed');
+        }
     },
 
     addLine: function (lines) {
         Array.prototype.push.apply(this.linesToDraw, lines);
     },
 
-    createLine: function (pointA, pointB, color) {
+    createLine: function (pointA, pointB, color, trigger) {
         var uuid = shortid.generate();
         var length, height, width, float = 'left';
         var line = document.createElement("div");
@@ -51,7 +81,8 @@ var linesDrawer = {
         line.setAttribute('style', styles);
         line.setAttribute('id', "point_" + uuid);
         line.setAttribute('class', 'drawed_line');
-        this.lines.push($(line));
+        line.setData(trigger); //todo:: check this is trigger id
+        this.addLine($(line));
 
         return $(line);
     },
@@ -97,20 +128,19 @@ var linesDrawer = {
     },
 
     scrollAnimate: function () {
-        var duration = 400;
+        var duration = this.options['animationDuration'];
         var counter = 0;
         var controller = new scrollMagic.Controller();
 
-        $.each(linesDrawer.lines, function () {
-            var $obj = $("#point_" + counter);
-            var height = $obj.css('height');
-            var width = $obj.css('width');
-            $obj.css('height', '0');
-            $obj.css('width', '0');
-            new scrollMagic.Scene({triggerElement: '#trigger' + counter})
-                .setVelocity("#point_" + counter, {'opacity': 1, width: width, height: height}, {duration: duration})
+        this.lines.forEach(function () {
+            var line = $(this);
+            var height = line.css('height');
+            var width = line.css('width');
+            line.css('height', '0');
+            line.css('width', '0');
+            new scrollMagic.Scene({triggerElement: line.getData()}) //todo:: here recieves trigger id? check
+                .setVelocity(line.getAttribute('id'), {'opacity': 1, width: width, height: height}, {duration: duration}) //todo:: check line id is correct
                 .addTo(controller);
-            counter = counter + 1;
         });
     },
 

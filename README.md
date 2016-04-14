@@ -5,6 +5,9 @@
 
 Draw lines in a web page with html divs.
 
+
+![Lines Draw](https://nodei.co/npm/lines-draw.png?downloads=true&stars=true)
+
 ## Getting Started
 
 ```
