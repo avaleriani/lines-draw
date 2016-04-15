@@ -1,6 +1,6 @@
 {
   "name": "lines-draw",
-  "version": "1.1.1",
+  "version": "1.1.5",
   "description": "Draw html div that looks like lines",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/avaleriani/linesDraw.git"
   },
   "devDependencies": {
-    "webpack": "2.1.x",
+    "webpack" : "1.1.x",
     "insert-css": "0.2.x",
     "shortid": "2.x",
     "jquery": "2.x",
@@ -31,5 +31,5 @@
   "bugs": {
     "url": "https://github.com/avaleriani/linesDraw/issues"
   },
-  "homepage": "https://github.com/avaleriani/linesDraw#readme",
+  "homepage": "https://github.com/avaleriani/linesDraw#readme"
 }
