@@ -1,8 +1,8 @@
 {
   "name": "lines-draw",
-  "version": "1.1.5",
+  "version": "1.1.16",
   "description": "Draw html div that looks like lines",
-  "main": "index.js",
+  "main": "dist/build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,12 +11,13 @@
     "url": "git+https://github.com/avaleriani/linesDraw.git"
   },
   "devDependencies": {
-    "webpack" : "1.1.x",
-    "insert-css": "0.2.x",
-    "shortid": "2.x",
+    "css-loader": "^0.23.1",
     "jquery": "2.x",
+    "scrollmagic": "2.x",
+    "shortid": "2.x",
+    "style-loader": "^0.13.1",
     "velocity-animate": "1.2.x",
-    "scrollmagic": "2.x"
+    "webpack": "1.1.x"
   },
   "dependencies": {},
   "keywords": [
@@ -24,12 +25,14 @@
     "lines",
     "jquery",
     "html",
-    "div"
+    "div",
+    "scrollmagic",
+    "velocity"
   ],
   "author": "Agustin Valeriani",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/avaleriani/linesDraw/issues"
+    "url": "https://github.com/avaleriani/lines-draw/issues"
   },
-  "homepage": "https://github.com/avaleriani/linesDraw#readme"
+  "homepage": "https://github.com/avaleriani/lines-draw#readme"
 }

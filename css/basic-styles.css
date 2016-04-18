@@ -1,0 +1,11 @@
+.drawed_line{
+    opacity:0;
+    height:0;
+    position:absolute;
+}
+.trigger{
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    opacity:0;
+}
