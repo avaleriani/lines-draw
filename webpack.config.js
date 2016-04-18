@@ -7,7 +7,7 @@ module.exports = {
     entry: './lib/main.js',
     output: {
         path: Path.join(__dirname, "dist"),
-        filename: 'build.js',
+        filename: 'build.js'
     },
     module:{
         loaders:[
