@@ -4,6 +4,7 @@ module.exports = {
     cache: true,
     debug: true,
     devtool: 'eval',
+    target: 'node',
     entry: './lib/main.js',
     output: {
         path: Path.join(__dirname, "dist"),
