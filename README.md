@@ -93,6 +93,13 @@ Add the line
    linesDrawer.createAllLines('#container');
 
 ```
+  Options
+  ```
+          'triggersContainerAppendTo': 'body',
+          'triggersContainerId': '#triggers', //container where all the triggers will be created
+          'animationDuration': 400, //duration for the effect when scroll in microseconds
+          'triggerScroll': '#scrollTrigger' //where the trigger scroll starts to search for triggers TODO
+  ```
 
 #Note
 
