@@ -1,6 +1,6 @@
 {
   "name": "lines-draw",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "Draw html div that looks like lines",
   "main": "dist/build.js",
   "scripts": {
@@ -15,15 +15,6 @@
     "css-loader": "^0.23.1",
     "expect": "^1.18.0",
     "jquery": "2.x",
-    "karma": "^0.13.22",
-    "karma-babel-preprocessor": "^6.0.1",
-    "karma-chrome-launcher": "^0.2.3",
-    "karma-cli": "^0.1.2",
-    "karma-mocha": "^0.2.2",
-    "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^1.7.0",
-    "mocha": "^2.4.5",
-    "mocha-loader": "^0.7.1",
     "scrollmagic": "2.x",
     "shortid": "2.x",
     "style-loader": "^0.13.1",

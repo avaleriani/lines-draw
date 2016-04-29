@@ -22,8 +22,7 @@ module.exports = {
         alias: {
             "ScrollMagic": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
             "animation.velocity": Path.resolve('node_modules', 'scrollmagic/scrollmagic/minified/plugins/animation.velocity.min.js'),
-            "velocity": Path.resolve('node_modules', 'velocity-animate/velocity.min.js'),
-            "debug.addIndicators" :Path.resolve('node_modules', 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js')
+            "velocity": Path.resolve('node_modules', 'velocity-animate/velocity.min.js')
         }
     }
 };
