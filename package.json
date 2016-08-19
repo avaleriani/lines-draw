@@ -1,25 +1,23 @@
 {
   "name": "lines-draw",
-  "version": "1.1.17",
+  "version": "1.2.00",
   "description": "Draw html div that looks like lines",
   "main": "dist/build.js",
   "scripts": {
-    "test": "mocha"
+    "test": ""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/avaleriani/linesDraw.git"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "css-loader": "^0.23.1",
-    "expect": "^1.18.0",
+    "css-loader": "0.23.x",
     "jquery": "2.x",
     "scrollmagic": "2.x",
     "shortid": "2.x",
-    "style-loader": "^0.13.1",
+    "style-loader": "0.13.x",
     "velocity-animate": "1.2.x",
-    "webpack": "^1.13.0"
+    "webpack": "1.13.x"
   },
   "dependencies": {},
   "keywords": [

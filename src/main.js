@@ -1,10 +1,12 @@
 'use strict';
-var $ = require("jquery");
 var shortid = require('shortid');
+var scrollMagic = require('ScrollMagic');
+var velocity = require('velocity');
+require('animation.velocity');
 
-var point = require('./objects/point');
-var line = require('./objects/line');
-var trigger = require('./objects/trigger');
+var Point = require('./objects/point');
+var Line = require('./objects/line');
+var Trigger = require('./objects/trigger');
 
 var css = require('../css/basic-styles.css');
 
@@ -13,18 +15,19 @@ var linesDrawer = {
     lines: [],
     options: {
         'triggersContainerAppendTo': 'body',
-        'triggersContainerId': '#triggers', //container where all the triggers will be created
-        'animationDuration': 400, //duration for the effect when scroll in microseconds
-        'triggerScroll': '#scrollTrigger' //where the trigger scroll starts to search for triggers TODO
+        'triggersContainerId': '#triggers', //container where all the triggers will be created with opacity 0
+        'animationDuration': 400, //duration for the effect when scroll in miliseconds
+        'triggerScroll': '#scrollTrigger', //where the trigger scroll starts to search for triggers TODO
+        'addScrollmagicIndicators': false
     },
 
     getPoint: function (x, y) {
-        return new point(x, y);
+        return new Point(x, y);
     },
 
     getLine: function (p1, p2, color, trigger) {
         color = typeof color !== 'undefined' ? color : "#000000";
-        return new line(p1, p2, color, trigger);
+        return new Line(p1, p2, color, trigger);
     },
 
     getTrigger: function (top) {
@@ -35,21 +38,29 @@ var linesDrawer = {
                 var triggers = document.createElement('div');
                 triggers.id = this.options['triggersContainerId'];
                 triggers.className = 'trigger';
-                $(this.options['triggersContainerAppendTo']).appendChild(triggers);
+                if (this.options['triggersContainerAppendTo'] === 'body') {
+                    document.getElementsByTagName('body')[0].appendChild(triggers);
+                } else {
+                    document.getElementById(this.options['triggersContainerAppendTo']).appendChild(triggers);
+                }
                 triggerContainer = triggers;
             }
-            triggerContainer.appendChild($(trigger));
+            triggerContainer.appendChild(trigger);
             return trigger;
         } else {
-            console.log('Only Integer allowed');
+            console.log('Only Integer allowed!');
         }
     },
 
-    addLine: function (lines) {
+    addDrawedLine: function (line) {
+        this.lines.push(line);
+    },
+
+    addLines: function (lines) {
         Array.prototype.push.apply(this.linesToDraw, lines);
     },
 
-    createLine: function (pointA, pointB, color, trigger) {
+    createLine: function (pointA, pointB, color, triggerObj) {
         var uuid = shortid.generate();
         var length, height, width, float = 'left';
         var line = document.createElement("div");
@@ -57,11 +68,11 @@ var linesDrawer = {
 
         length = this.calculateLenght(pointA, pointB);
         if (this.calculateDirection(pointA, pointB) == 'horizontal') {
-            height = '2px';
+            height = '2';
             width = length;
         } else {
             height = length;
-            width = '2px';
+            width = '2';
         }
         if (this.calculateLoR(pointA, pointB) == 'right') {
             float = 'right';
@@ -78,18 +89,19 @@ var linesDrawer = {
             + float + ': ' + pointX + 'px; '
             + 'float: ' + float + '; ';
         line.setAttribute('style', styles);
-        line.setAttribute('id', "point_" + uuid);
+        line.setAttribute('id', "line_" + uuid);
         line.setAttribute('class', 'drawed_line');
-        line.setData(trigger); //todo:: check this is trigger id
-        this.addLine($(line));
-
-        return $(line);
+        line.setAttribute('data-trigger', triggerObj.id);
+        this.addDrawedLine(line);
+        return line;
     },
 
     createAllLines: function (appendId) {
         var that = this;
+        var ln = null;
         this.linesToDraw.forEach(function (sl) {
-            that.createLine(sl.startPoint, sl.endPoint, sl.colorSelected).appendTo(appendId);
+            ln = that.createLine(sl.startPoint, sl.endPoint, sl.colorSelected, sl.triggerObj);
+            appendId.appendChild(ln);
         });
     },
 
@@ -126,31 +138,44 @@ var linesDrawer = {
         }
     },
 
+    callback: function (event) {
+        // console.log("Event fired! (" + event.type + ")");
+    },
+
+
     scrollAnimate: function () {
         var duration = this.options['animationDuration'];
-        var controller = new scrollMagic.Controller();
 
-        this.lines.forEach(function (element, index, array) {
-            var line = $(element); //testear esto a ver si resuelve todos mis problemas. 
-            var height = line.css('height');
-            var width = line.css('width');
-            line.css('height', '0');
-            line.css('width', '0');
-            new scrollMagic.Scene({triggerElement: line.getData()}) //todo:: here recieves trigger id? check
-                .setVelocity(line.getAttribute('id'), {
-                    'opacity': 1,
+        if (this.options['addScrollmagicIndicators'] === true) {
+            require('debug');
+        }
+
+        // var controller = new scrollMagic.Controller({addIndicators:this.options['addScrollmagicIndicators']});
+        var controller = new scrollMagic.Controller({addIndicators: true});
+        this.lines.forEach(function (line) {
+            var height = line.style.height;
+            var width = line.style.width;
+            line.style.height = 0;
+            line.style.width = 0;
+            console.log(line.getAttribute('data-trigger'));
+            var scene = new scrollMagic.Scene({
+                triggerElement: "#" + line.getAttribute('data-trigger')
+            });
+            scene.setVelocity("#" + line.getAttribute('id'), {
+                opacity: 1,
                     width: width,
                     height: height
-                }, {duration: duration}) //todo:: check line id is correct
-                .addTo(controller);
+            }, {duration: duration});
+            scene.addTo(controller);
         });
     },
+
 
     mouseCoordenatesOnTitle: function () {
         document.onmousemove = function (e) {
             var cursorX = e.pageX;
             var cursorY = e.pageY;
-            $('title').html('x:' + cursorX + ' - y:' + cursorY);
+            document.getElementsByTagName('body')[0].innerHTML('x:' + cursorX + ' - y:' + cursorY);
         }
     }
 };

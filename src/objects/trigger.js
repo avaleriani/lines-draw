@@ -7,7 +7,7 @@ var Trigger = function (top) {
 
     trigger.style.top = top;
 
-    trigger.setAttribute('id', '#trigger_' + uuid);
+    trigger.setAttribute('id', 'trigger_' + uuid);
     trigger.setAttribute('class', 'trigger');
     return trigger;
 };

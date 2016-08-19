@@ -1,5 +1,5 @@
 
-#  WIP
+#  It works!
 
 ![Lines Draw](http://i.imgur.com/zSLrLyu.png)
 
@@ -107,7 +107,7 @@ You could do this call to get your mouse coordenates(needed to determinate every
 
 ```
    linesDrawer.mouseCoordenatesOnTitle();
-``
+```
 
 V2:
 -Responsive
