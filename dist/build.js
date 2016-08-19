@@ -195,7 +195,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	
 	    callback: function (event) {
-	        console.log("Event fired! (" + event.type + ")");
+			// console.log("Event fired! (" + event.type + ")");
 	    },
 	
 	
@@ -215,9 +215,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            line.style.width = 0;
 	            console.log(line.getAttribute('data-trigger'));
 	            var scene = new scrollMagic.Scene({
-	                triggerElement: line.getAttribute('data-trigger'), loglevel: 3
+					triggerElement: "#" + line.getAttribute('data-trigger'), loglevel: 3
 	            });
-	            scene.setVelocity(line.getAttribute('id'), {
+				console.log(line.getAttribute('id'));
+				scene.setVelocity("#" + line.getAttribute('id'), {
 	                opacity: 1,
 	                    width: width,
 	                    height: height
@@ -1226,7 +1227,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					return values[about];
 				} else {
 					log(1, "ERROR: option \"" + about + "\" is not available");
-					return;
+
 				}
 			};
 	
@@ -3349,27 +3350,27 @@ return /******/ (function(modules) { // webpackBootstrap
 		ScrollMagic.Scene.prototype.addIndicators = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling addIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
 			return this;
-		}
+		};
 		ScrollMagic.Scene.prototype.removeIndicators = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeIndicators() due to missing Plugin \'debug.addIndicators\'. Please make sure to include plugins/debug.addIndicators.js');
 			return this;
-		}
+		};
 		ScrollMagic.Scene.prototype.setTween = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
 			return this;
-		}
+		};
 		ScrollMagic.Scene.prototype.removeTween = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeTween() due to missing Plugin \'animation.gsap\'. Please make sure to include plugins/animation.gsap.js');
 			return this;
-		}
+		};
 		ScrollMagic.Scene.prototype.setVelocity = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling setVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
 			return this;
-		}
+		};
 		ScrollMagic.Scene.prototype.removeVelocity = function () {
 			ScrollMagic._util.log(1, '(ScrollMagic.Scene) -> ERROR calling removeVelocity() due to missing Plugin \'animation.velocity\'. Please make sure to include plugins/animation.velocity.js');
 			return this;
-		}
+		};
 	
 		return ScrollMagic;
 	}));
@@ -3435,8 +3436,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var trigger = document.createElement('div');
 	
 	    trigger.style.top = top;
-	
-	    trigger.setAttribute('id', '#trigger_' + uuid);
+
+		trigger.setAttribute('id', 'trigger_' + uuid);
 	    trigger.setAttribute('class', 'trigger');
 	    return trigger;
 	};
@@ -3602,7 +3603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 				}
 			}
 		};
-	}
+	};
 	
 	function addStylesToDom(styles, options) {
 		for(var i = 0; i < styles.length; i++) {
@@ -3802,5 +3803,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ }
 /******/ ])
 });
-;
 //# sourceMappingURL=build.js.map

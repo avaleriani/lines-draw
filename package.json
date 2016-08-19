@@ -1,6 +1,6 @@
 {
   "name": "lines-draw",
-  "version": "1.1.23",
+  "version": "1.2.00",
   "description": "Draw html div that looks like lines",
   "main": "dist/build.js",
   "scripts": {

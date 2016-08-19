@@ -139,7 +139,7 @@ var linesDrawer = {
     },
 
     callback: function (event) {
-        console.log("Event fired! (" + event.type + ")");
+        // console.log("Event fired! (" + event.type + ")");
     },
 
 
@@ -159,9 +159,9 @@ var linesDrawer = {
             line.style.width = 0;
             console.log(line.getAttribute('data-trigger'));
             var scene = new scrollMagic.Scene({
-                triggerElement: line.getAttribute('data-trigger'), loglevel: 3
+                triggerElement: "#" + line.getAttribute('data-trigger')
             });
-            scene.setVelocity(line.getAttribute('id'), {
+            scene.setVelocity("#" + line.getAttribute('id'), {
                 opacity: 1,
                     width: width,
                     height: height
