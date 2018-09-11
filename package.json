@@ -14,7 +14,7 @@
     "babel": "^6.5.2",
     "css-loader": "^0.23.1",
     "expect": "^1.18.0",
-    "jquery": "2.x",
+    "jquery": "3.x",
     "scrollmagic": "2.x",
     "shortid": "2.x",
     "style-loader": "^0.13.1",
